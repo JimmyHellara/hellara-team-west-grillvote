@@ -69,7 +69,7 @@
   }
   async function rpc(method,params={}){
     const res=await fetch(`${endpoint}/rest/v1/rpc/${method}`,{
-      method:'POST',headers:{'apikey':publicKey,'Authorization':`Bearer ${publicKey}`,'Content-Type':'application/json','Accept':'application/json'},
+      method:'POST',headers:{'apikey':publicKey,'Content-Type':'application/json','Accept':'application/json'},
       body:JSON.stringify(params),cache:'no-store'
     });
     let data=null;
