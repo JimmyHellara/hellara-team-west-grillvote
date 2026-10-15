@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="nl-BE">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171513" />
+  <meta name="description" content="Team West gaat aan de grill. Stem op jouw drie favoriete vrijdagen voor het Veneta teamuitje bij Grillrestaurant d’Hoeve." />
+  <meta property="og:title" content="Team West aan de grill — Hellara Studios" />
+  <meta property="og:description" content="Kies jouw top 3 vrijdagen. Bekijk de live tussenstand en wie er al heeft gestemd." />
+  <title>Team West aan de grill · Hellara Studios</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="./config.js"></script>
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <div class="top-strip" aria-hidden="true"></div>
+    <header class="site-header container">
+      <a href="#start" class="brand-lockup" aria-label="Team West — bovenaan de pagina">
+        <span class="brand-mark">V<span class="brand-slash">/</span></span>
+        <span class="brand-copy"><strong>VENETA<span class="dot">.</span></strong><small>TEAM WEST · BELGIË</small></span>
+      </a>
+      <nav class="header-actions" aria-label="Navigatie">
+        <a class="nav-link desktop-only" href="#tussenstand">De tussenstand</a>
+        <a class="nav-link desktop-only" href="#stemmen">Stemmen</a>
+        <span class="live-pill" id="connection-pill"><span class="live-dot"></span><span id="connection-label">DEMO MODUS</span></span>
+        <button class="profile-button" type="button" id="header-profile"><span class="user-dot">👤</span><span id="header-profile-label">Mijn naam</span></button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero" id="start">
+        <div class="hero-photo" aria-hidden="true"></div>
+        <div class="hero-glow" aria-hidden="true"></div>
+        <div class="smoke smoke-a" aria-hidden="true"></div>
+        <div class="smoke smoke-b" aria-hidden="true"></div>
+        <div class="container hero-grid">
+          <div class="hero-content">
+            <div class="eyebrow"><span class="eyebrow-rule"></span> TEAMUITJE 2026 <span class="eyebrow-star">✦</span> VENETA TEAM WEST</div>
+            <h1>WE GAAN<br/><em>AAN DE</em><br/><span>GRILL<span class="hero-period">.</span></span></h1>
+            <p class="hero-lead">Goeie collega’s. Een goeie lap vlees. En vooral: een avond zonder targets. <strong>Jij kiest wanneer.</strong></p>
+            <div class="hero-cta-row">
+              <a href="#stemmen" class="btn btn-fire">KIES JOUW TOP 3 <span aria-hidden="true">↗</span></a>
+              <a href="#tussenstand" class="secondary-arrow">BEKIJK DE STAND <span>↗</span></a>
+            </div>
+            <div class="hero-meta"><span><span class="meta-icon">◈</span> GRILLRESTAURANT D’HOEVE</span><span class="meta-divider"></span><span>LICHTERVELDE</span><span class="meta-divider"></span><span class="studio-eyebrow">A HELLARA STUDIOS EXPERIENCE</span></div>
+          </div>
+          <aside class="hero-sticker" aria-label="Locatie">
+            <span class="sticker-top">THE VENUE</span>
+            <div class="sticker-rule"></div>
+            <span class="sticker-main">d’Hoeve<span class="small-flame">✳</span></span>
+            <span class="sticker-sub">GRILLRESTAURANT</span>
+            <div class="sticker-rule"></div>
+            <span class="sticker-bottom">ROESELAREBAAN 70<br/>8810 LICHTERVELDE</span>
+          </aside>
+        </div>
+        <div class="hero-bottom-gradient" aria-hidden="true"></div>
+      </section>
+
+      <section class="intro-strip">
+        <div class="container intro-content">
+          <span class="intro-icon" aria-hidden="true">✳</span>
+          <p>DE LOCATIE STAAT VAST. <strong>DE DATUM? DIE BEPALEN WE SAMEN.</strong></p>
+          <span class="intro-icon" aria-hidden="true">✳</span>
+        </div>
+      </section>
+
+      <section class="main-section container" id="stemmen">
+        <div class="section-intro">
+          <div>
+            <p class="overline">01 <span class="overline-rule"></span> JOUW STEM</p>
+            <h2>PRIK JOUW <em>VRIJDAG.</em></h2>
+            <p class="section-subtitle">Zet de drie vrijdagen in jouw volgorde. Je favoriet krijgt 3 punten, je tweede keuze 2 en je derde keuze 1.</p>
+          </div>
+          <div class="vote-tag"><span>01 / 02 / 03</span><small>JOUW RANGLIJST</small></div>
+        </div>
+        <div class="vote-layout">
+          <div class="vote-panel panel">
+            <div class="panel-topline">
+              <div class="panel-label"><span class="mini-fire">✦</span> STEMKAART</div>
+              <span class="subtle-label" id="vote-name-badge">NOG NIET AANGEMELD</span>
+            </div>
+            <div class="vote-panel-intro">
+              <h3 id="vote-title">Welke vrijdag past jou best?</h3>
+              <p id="vote-help">Tik op de datums in volgorde van jouw voorkeur. Eerste tik = jouw nummer 1.</p>
+            </div>
+            <div id="date-options" class="date-options" role="group" aria-label="Kies de volgorde van de drie vrijdagen"></div>
+            <div class="vote-progress">
+              <div class="vote-progress-copy"><span id="vote-progress-text">0 van 3 gekozen</span><button type="button" class="text-button" id="clear-choices">Opnieuw kiezen ↻</button></div>
+              <div class="steps"><span class="step"></span><span class="step"></span><span class="step"></span></div>
+            </div>
+            <button id="save-vote" class="btn btn-primary btn-full" type="button" disabled>STEM BEVESTIGEN <span>→</span></button>
+            <div id="vote-status" class="status-message" role="status" aria-live="polite"></div>
+            <p class="vote-disclaimer">Je kunt jouw keuze later nog aanpassen. Per naam telt maar één stemronde mee.</p>
+          </div>
+          <div class="info-column">
+            <div class="fact-card">
+              <div class="fact-top"><span class="small-label">DE SPELREGELS</span><span class="fact-icon">↗</span></div>
+              <h3>THREE DATES.<br/><span>ONE WINNER.</span></h3>
+              <div class="point-rule"><span class="point-pill first">1</span><div><b>Jouw favoriete vrijdag</b><small>3 PUNTEN</small></div></div>
+              <div class="point-rule"><span class="point-pill second">2</span><div><b>Je tweede keuze</b><small>2 PUNTEN</small></div></div>
+              <div class="point-rule"><span class="point-pill third">3</span><div><b>Je derde keuze</b><small>1 PUNT</small></div></div>
+              <p>De dag met de meeste punten wint. Bij gelijke punten telt het aantal eerste keuzes.</p>
+            </div>
+            <div class="jimmy-note"><span class="quote-icon">“</span><p>En ja, ik heb d’Hoeve gekozen omdat daar <strong>mijn bamboe jaloezieën van Veneta</strong> hangen. Klantenbinding noemen ze dat. 😎</p><span class="signature">— Jimmy</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="standings-section" id="tussenstand">
+        <div class="container">
+          <div class="section-intro standings-heading">
+            <div><p class="overline">02 <span class="overline-rule"></span> DE TUSSENSTAND</p><h2>THE HEAT <em>IS ON.</em></h2><p class="section-subtitle">De score wordt bijgewerkt zodra een collega stemt. Hoe heter de balk, hoe dichter we bij onze vrijdag zijn.</p></div>
+            <div class="standings-live"><span class="live-dot"></span> <span id="standings-mode">LOKALE DEMO</span></div>
+          </div>
+          <div class="standings-grid">
+            <div class="leader-panel panel">
+              <div class="leader-header"><span class="small-label">VOORLOPIGE FAVORIET</span><span class="trophy">✦</span></div>
+              <div id="leader-content" class="leader-content"><p class="muted">Nog geen stemmen uitgebracht.</p></div>
+              <div class="leader-foot"><span id="leader-note">Elke stem kan het verschil maken.</span><span>✳</span></div>
+            </div>
+            <div class="leaderboard panel"><div class="board-header"><h3>DE RANGLIJST</h3><span class="small-label">PUNTEN <span class="arrow-small">↗</span></span></div><div id="leaderboard-list" class="leaderboard-list"></div><div class="board-foot">Gebaseerd op eerste (3 pt.), tweede (2 pt.) en derde (1 pt.) keuze.</div></div>
+          </div>
+          <div class="attendees-header"><div><p class="overline">03 <span class="overline-rule"></span> DE BENDE</p><h2>WIE IS <em>ERBIJ?</em></h2></div><div class="attendees-count"><strong id="attendee-count">0</strong><span>STEMMEN<br/>BINNEN</span></div></div>
+          <div class="attendees-panel panel"><div class="attendees-title-row"><span class="small-label">TEAM WEST · STEMSTATUS</span><span id="roster-tally" class="small-label">NOG NIEMAND HEEFT GESTEMD</span></div><div id="attendee-list" class="attendees-list"></div></div>
+        </div>
+      </section>
+
+      <section class="venue-section"><div class="container venue-grid"><div><p class="overline light-overline">DE BESTEMMING</p><h2>GRILLRESTAURANT<br/><em>D’HOEVE.</em></h2><p>Een avond gezellig tafelen, goed eten en bijpraten. Op de grens van Lichtervelde en Hooglede-Gits. Geen salespitch vereist.</p><div class="venue-details"><span>⌖ &nbsp; Roeselarebaan 70, 8810 Lichtervelde</span><span>◷ &nbsp; Vrijdagavond · uur volgt</span></div><a class="venue-link" href="https://grill-dhoeve.be/" rel="noopener noreferrer" target="_blank">ONTDEK D’HOEVE <span>↗</span></a></div><div class="venue-illustration"><div class="plate-ring"><span>✳</span><strong>MEAT<br/>THE<br/>TEAM.</strong><small>TEAM WEST · 2026</small></div></div></div></section>
+    </main>
+    <footer class="site-footer"><div class="container footer-grid"><div class="footer-left"><span class="footer-icon">✳</span><span>ORGANISATIE DOOR JIMMY · TEAM WEST<br/><small>INDEPENDENT TEAM INITIATIVE · NOT AN OFFICIAL VENETA WEBSITE</small></span></div><div class="footer-studio"><span class="hs-monogram">H<span>✳</span>S</span><span><strong>HELLARA STUDIOS</strong><small>DESIGNED &amp; BUILT BY JIMMY HELLARA</small></span></div><button type="button" id="admin-launch" class="admin-link" title="Beheer">⚙ BEHEER</button></div></footer>
+  </div>
+
+  <div id="login-modal" class="modal-backdrop" aria-hidden="true"><div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="login-heading"><button class="modal-close" type="button" id="login-close" aria-label="Sluiten">×</button><span class="modal-eyebrow">WELKOM BIJ DE BENDE</span><h2 id="login-heading">HOE HEET<br/><em>ONZE GRILLHELD?</em></h2><p>Vul jouw voor- en achternaam in. Zo kan iedereen zien wie al gestemd heeft.</p><form id="login-form"><label for="name-input">JOUW NAAM</label><input id="name-input" type="text" maxlength="60" minlength="2" placeholder="Bijvoorbeeld: Jimmy Hellara" autocomplete="name" required/><button type="submit" class="btn btn-primary btn-full">VERDER NAAR STEMMEN <span>→</span></button></form><p class="modal-fineprint">Er is geen wachtwoord nodig. Je naam is zichtbaar voor collega's; met alleen een naam is dit geen beveiligde login.</p></div></div>
+
+  <div id="admin-modal" class="modal-backdrop" aria-hidden="true"><div class="modal-card admin-modal-card" role="dialog" aria-modal="true" aria-labelledby="admin-heading"><button class="modal-close" type="button" id="admin-close" aria-label="Sluiten">×</button><span class="modal-eyebrow">HELLARA STUDIOS · CONTROL ROOM</span><h2 id="admin-heading">DE GRILL<br/><em>MANAGER.</em></h2><p>Beheer de vrijdagen, het team en het stemproces. Dit gedeelte is bedoeld voor de organisator.</p><form id="admin-form"><div class="admin-form-grid"><div><label for="admin-date-1">VRIJDAG 1</label><input type="date" id="admin-date-1" required/></div><div><label for="admin-date-2">VRIJDAG 2</label><input type="date" id="admin-date-2" required/></div><div><label for="admin-date-3">VRIJDAG 3</label><input type="date" id="admin-date-3" required/></div></div><label for="team-roster">COLLEGA’S (OPTIONEEL, ÉÉN NAAM PER REGEL)</label><textarea id="team-roster" rows="6" placeholder="Gilles\nRomy\nMargot\n..."></textarea><label class="check-row"><input type="checkbox" id="voting-open" checked/><span>Stemmen toegestaan</span></label><div id="admin-password-group"><label for="admin-password">BEHEERWACHTWOORD</label><input type="password" id="admin-password" placeholder="Wachtwoord ingesteld in Supabase" autocomplete="current-password"/></div><p class="admin-caution" id="admin-caution">Als je de datums aanpast nadat er stemmen zijn uitgebracht, worden alle stemmen gewist. Er wordt altijd om bevestiging gevraagd.</p><button type="submit" class="btn btn-primary btn-full" id="admin-save">INSTELLINGEN OPSLAAN <span>→</span></button></form><div id="admin-status" class="status-message" role="status"></div><button type="button" id="export-csv" class="outline-button">↓ Exporteer stemmenoverzicht als CSV</button></div></div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
