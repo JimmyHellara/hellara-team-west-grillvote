@@ -4,9 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#171513" />
-  <meta name="description" content="Team West gaat aan de grill. Stem op jouw drie favoriete vrijdagen voor het Veneta teamuitje bij Grillrestaurant d’Hoeve." />
+  <meta name="description" content="Team West gaat aan de grill! Vrijdag 6 november 2026 bij d’Hoeve in Lichtervelde. Aankomst tussen 19:00 en 19:30. Een Hellara Studios experience." />
   <meta property="og:title" content="Team West aan de grill — Hellara Studios" />
-  <meta property="og:description" content="Kies jouw top 3 vrijdagen. Bekijk de live tussenstand en wie er al heeft gestemd." />
+  <meta property="og:description" content="De datum ligt vast! Vrijdag 6 november 2026, aankomst tussen 19:00 en 19:30 bij Grillrestaurant d’Hoeve in Lichtervelde." />
   <title>Team West aan de grill · Hellara Studios</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,7 +15,7 @@
   <script src="./config.js"></script>
   <script src="./app.js" defer></script>
 </head>
-<body>
+<body class="event-confirmed">
   <div class="app-shell">
     <div class="top-strip" aria-hidden="true"></div>
     <header class="site-header container">
@@ -24,8 +24,8 @@
         <span class="brand-copy"><strong>VENETA<span class="dot">.</span></strong><small>TEAM WEST · BELGIË</small></span>
       </a>
       <nav class="header-actions" aria-label="Navigatie">
-        <a class="nav-link desktop-only" href="#tussenstand">De tussenstand</a>
-        <a class="nav-link desktop-only" href="#stemmen">Stemmen</a>
+        <a class="nav-link desktop-only" href="#bevestiging">De afspraak</a>
+        <a class="nav-link desktop-only" href="#locatie">De locatie</a>
         <span class="live-pill" id="connection-pill"><span class="live-dot"></span><span id="connection-label">DEMO MODUS</span></span>
         <button class="profile-button" type="button" id="header-profile"><span class="user-dot">👤</span><span id="header-profile-label">Mijn naam</span></button>
       </nav>
@@ -39,12 +39,13 @@
         <div class="smoke smoke-b" aria-hidden="true"></div>
         <div class="container hero-grid">
           <div class="hero-content">
-            <div class="eyebrow"><span class="eyebrow-rule"></span> TEAMUITJE 2026 <span class="eyebrow-star">✦</span> VENETA TEAM WEST</div>
+            <div class="eyebrow"><span class="eyebrow-rule"></span> RESERVERING BEVESTIGD <span class="eyebrow-star">✦</span> VENETA TEAM WEST</div>
             <h1>WE GAAN<br/><em>AAN DE</em><br/><span>GRILL<span class="hero-period">.</span></span></h1>
-            <p class="hero-lead">Goeie collega’s. Een goeie lap vlees. En vooral: een avond zonder targets. <strong>Jij kiest wanneer.</strong></p>
+            <p class="hero-lead">De stemmen zijn geteld, de tafel is gereserveerd. <strong>Vrijdag 6 november gaan we met Team West aan de grill!</strong></p>
+            <div class="booking-preview" aria-label="Reservatie bevestigd voor vrijdag 6 november 2026"><span class="booking-check">✓ RESERVERING BEVESTIGD</span><div class="booking-preview-content"><strong>VR 06 NOV <small>2026</small></strong><span>19:00–19:30<small>AANKOMST</small></span></div></div>
             <div class="hero-cta-row">
-              <a href="#stemmen" class="btn btn-fire">KIES JOUW TOP 3 <span aria-hidden="true">↗</span></a>
-              <a href="#tussenstand" class="secondary-arrow">BEKIJK DE STAND <span>↗</span></a>
+              <a href="#bevestiging" class="btn btn-fire">BEKIJK DE AFSPRAAK <span aria-hidden="true">↗</span></a>
+              <a href="#locatie" class="secondary-arrow">ONTDEK DE LOCATIE <span>↗</span></a>
             </div>
             <div class="hero-meta"><span><span class="meta-icon">◈</span> GRILLRESTAURANT D’HOEVE</span><span class="meta-divider"></span><span>LICHTERVELDE</span><span class="meta-divider"></span><span class="studio-eyebrow">A HELLARA STUDIOS EXPERIENCE</span></div>
           </div>
@@ -63,8 +64,41 @@
       <section class="intro-strip">
         <div class="container intro-content">
           <span class="intro-icon" aria-hidden="true">✳</span>
-          <p>DE LOCATIE STAAT VAST. <strong>DE DATUM? DIE BEPALEN WE SAMEN.</strong></p>
+          <p>DE DATUM LIGT VAST. <strong>THE GRILL IS ON. 🔥</strong></p>
           <span class="intro-icon" aria-hidden="true">✳</span>
+        </div>
+      </section>
+
+      <section class="confirmation-section" id="bevestiging">
+        <div class="container">
+          <div class="confirmation-heading">
+            <p class="overline">01 <span class="overline-rule"></span> DE OFFICIËLE AFSPRAAK</p>
+            <h2>THE VOTES ARE IN.<br/><em>THE GRILL IS ON.</em></h2>
+            <p>Geen polls meer. Geen targets. Gewoon samen tafelen bij d’Hoeve. Zet de datum alvast in je agenda — <strong>Team West heeft een tafel!</strong></p>
+          </div>
+          <div class="confirmation-grid">
+            <article class="confirmation-date">
+              <span class="confirmation-overline"><span class="confirmation-dot"></span> RESERVATIE BEVESTIGD</span>
+              <div class="confirmation-date-body"><span class="confirmation-day">06</span><div class="confirmation-month"><strong>NOVEMBER</strong><span>VRIJDAG · 2026</span></div></div>
+              <div class="confirmation-card-rule"></div>
+              <span class="confirmation-time-label">AANKOMST TUSSEN</span>
+              <strong class="confirmation-time">19:00 – 19:30</strong>
+              <span class="confirmation-detail">Grillrestaurant d’Hoeve · Lichtervelde</span>
+            </article>
+            <article class="confirmation-countdown">
+              <span class="confirmation-overline">✦ &nbsp; DE COUNTDOWN IS BEGONNEN</span>
+              <h3>COUNTING DOWN<br/><em>TO THE GRILL.</em></h3>
+              <div class="countdown-grid" id="grill-countdown" aria-label="Tijd tot het teamuitje">
+                <div><strong id="countdown-days">—</strong><span>DAGEN</span></div>
+                <div><strong id="countdown-hours">—</strong><span>UREN</span></div>
+                <div><strong id="countdown-minutes">—</strong><span>MINUTEN</span></div>
+                <div><strong id="countdown-seconds">—</strong><span>SECONDEN</span></div>
+              </div>
+              <p id="countdown-message">De grill wordt alvast warmgedraaid… 🥩</p>
+              <div class="confirmation-actions"><a class="btn btn-fire" href="https://www.google.com/maps/search/?api=1&amp;query=Roeselarebaan%2070%2C%208810%20Lichtervelde" target="_blank" rel="noopener noreferrer">ROUTEBESCHRIJVING <span aria-hidden="true">↗</span></a><a class="confirmation-text-link" href="https://grill-dhoeve.be/" target="_blank" rel="noopener noreferrer">WEBSITE D’HOEVE ↗</a></div>
+            </article>
+          </div>
+          <p class="confirmation-footnote">De stemming is afgerond. De oorspronkelijke stemgegevens blijven bewaard voor de organisator. <strong>Designed &amp; built by Hellara Studios.</strong></p>
         </div>
       </section>
 
@@ -129,7 +163,7 @@
         </div>
       </section>
 
-      <section class="venue-section"><div class="container venue-grid"><div><p class="overline light-overline">DE BESTEMMING</p><h2>GRILLRESTAURANT<br/><em>D’HOEVE.</em></h2><p>Een avond gezellig tafelen, goed eten en bijpraten. Op de grens van Lichtervelde en Hooglede-Gits. Geen salespitch vereist.</p><div class="venue-details"><span>⌖ &nbsp; Roeselarebaan 70, 8810 Lichtervelde</span><span>◷ &nbsp; Vrijdagavond · uur volgt</span></div><a class="venue-link" href="https://grill-dhoeve.be/" rel="noopener noreferrer" target="_blank">ONTDEK D’HOEVE <span>↗</span></a></div><div class="venue-illustration"><div class="plate-ring"><span>✳</span><strong>MEAT<br/>THE<br/>TEAM.</strong><small>TEAM WEST · 2026</small></div></div></div></section>
+      <section class="venue-section" id="locatie"><div class="container venue-grid"><div><p class="overline light-overline">DE BESTEMMING</p><h2>GRILLRESTAURANT<br/><em>D’HOEVE.</em></h2><p>Een avond gezellig tafelen, goed eten en bijpraten. Op de grens van Lichtervelde en Hooglede-Gits. Geen salespitch vereist.</p><div class="venue-details"><span>⌖ &nbsp; Roeselarebaan 70, 8810 Lichtervelde</span><span>◷ &nbsp; Vrijdag 6 november 2026 · aankomst 19:00–19:30</span></div><a class="venue-link" href="https://grill-dhoeve.be/" rel="noopener noreferrer" target="_blank">ONTDEK D’HOEVE <span>↗</span></a></div><div class="venue-illustration"><div class="plate-ring"><span>✳</span><strong>MEAT<br/>THE<br/>TEAM.</strong><small>TEAM WEST · 2026</small></div></div></div></section>
     </main>
     <footer class="site-footer"><div class="container footer-grid"><div class="footer-left"><span class="footer-icon">✳</span><span>ORGANISATIE DOOR JIMMY · TEAM WEST<br/><small>INDEPENDENT TEAM INITIATIVE · NOT AN OFFICIAL VENETA WEBSITE</small></span></div><div class="footer-studio"><span class="hs-monogram">H<span>✳</span>S</span><span><strong>HELLARA STUDIOS</strong><small>DESIGNED &amp; BUILT BY JIMMY HELLARA</small></span></div><button type="button" id="admin-launch" class="admin-link" title="Beheer">⚙ BEHEER</button></div></footer>
   </div>
@@ -139,5 +173,33 @@
   <div id="admin-modal" class="modal-backdrop" aria-hidden="true"><div class="modal-card admin-modal-card" role="dialog" aria-modal="true" aria-labelledby="admin-heading"><button class="modal-close" type="button" id="admin-close" aria-label="Sluiten">×</button><span class="modal-eyebrow">HELLARA STUDIOS · CONTROL ROOM</span><h2 id="admin-heading">DE GRILL<br/><em>MANAGER.</em></h2><p>Beheer de vrijdagen, het team en het stemproces. Dit gedeelte is bedoeld voor de organisator.</p><form id="admin-form"><div class="admin-form-grid"><div><label for="admin-date-1">VRIJDAG 1</label><input type="date" id="admin-date-1" required/></div><div><label for="admin-date-2">VRIJDAG 2</label><input type="date" id="admin-date-2" required/></div><div><label for="admin-date-3">VRIJDAG 3</label><input type="date" id="admin-date-3" required/></div></div><label for="team-roster">COLLEGA’S (OPTIONEEL, ÉÉN NAAM PER REGEL)</label><textarea id="team-roster" rows="6" placeholder="Gilles\nRomy\nMargot\n..."></textarea><label class="check-row"><input type="checkbox" id="voting-open" checked/><span>Stemmen toegestaan</span></label><div id="admin-password-group"><label for="admin-password">BEHEERWACHTWOORD</label><input type="password" id="admin-password" placeholder="Wachtwoord ingesteld in Supabase" autocomplete="current-password"/></div><p class="admin-caution" id="admin-caution">Als je de datums aanpast nadat er stemmen zijn uitgebracht, worden alle stemmen gewist. Er wordt altijd om bevestiging gevraagd.</p><button type="submit" class="btn btn-primary btn-full" id="admin-save">INSTELLINGEN OPSLAAN <span>→</span></button></form><div id="admin-status" class="status-message" role="status"></div><button type="button" id="export-csv" class="outline-button">↓ Exporteer stemmenoverzicht als CSV</button></div></div>
 
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script>
+    (() => {
+      const target = new Date('2026-11-06T19:00:00+01:00').getTime();
+      const parts = {
+        days: document.getElementById('countdown-days'),
+        hours: document.getElementById('countdown-hours'),
+        minutes: document.getElementById('countdown-minutes'),
+        seconds: document.getElementById('countdown-seconds')
+      };
+      const message = document.getElementById('countdown-message');
+      function updateCountdown() {
+        const remaining = Math.max(0, target - Date.now());
+        const seconds = Math.floor(remaining / 1000);
+        const values = {
+          days: Math.floor(seconds / 86400),
+          hours: Math.floor((seconds % 86400) / 3600),
+          minutes: Math.floor((seconds % 3600) / 60),
+          seconds: seconds % 60
+        };
+        for (const key of Object.keys(parts)) {
+          if (parts[key]) parts[key].textContent = String(values[key]).padStart(2, '0');
+        }
+        if (message && remaining === 0) message.textContent = 'Het is zover! Team West gaat aan de grill. 🔥🥩';
+      }
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+    })();
+  </script>
 </body>
 </html>
