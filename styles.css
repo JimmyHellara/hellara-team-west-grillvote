@@ -7,3 +7,91 @@
 @media(max-width:760px){.container{width:min(100% - 34px,650px)}.site-header{height:72px}.desktop-only{display:none}.header-actions{gap:14px}.live-pill{font-size:8px}.brand-mark{font-size:36px}.brand-copy strong{font-size:16px}.brand-copy small{font-size:8px}.profile-button{padding:9px;font-size:10px}.hero{min-height:590px}.hero-photo{inset:0 0 0 5%;opacity:.52;background-position:61% 50%}.hero-glow{background:linear-gradient(90deg,#171411ef,#1714119f 75%),linear-gradient(0deg,#171411d0,transparent 40%)}.hero-grid{padding:76px 0 62px}.hero h1{font-size:clamp(81px,15vw,117px);margin-bottom:24px}.hero-lead{font-size:14px;max-width:360px}.hero-meta{margin-top:50px;font-size:9px;flex-wrap:wrap}.intro-content{gap:15px;min-height:56px}.intro-content p{font-size:15px}.intro-icon{font-size:13px}.main-section,.standings-section{padding:65px 0}.vote-tag{display:none}.section-intro h2,.attendees-header h2{font-size:55px}.vote-layout,.standings-grid{grid-template-columns:1fr}.vote-panel{padding:22px}.leader-panel{min-height:242px}.leader-content{margin:18px 0}.leader-content .winning-day{font-size:58px}.attendees-header{margin-top:57px}.venue-grid{grid-template-columns:1fr;gap:0;padding:54px 0}.venue-section h2{font-size:clamp(34px,9vw,43px)}.venue-illustration{display:none}.footer-grid{padding:25px 0;min-height:0;display:grid;grid-template-columns:1fr auto;gap:23px}.footer-studio{grid-row:2;grid-column:1/-1}.admin-link{grid-column:2;grid-row:1}.footer-left{font-size:9px}.modal-card{padding:35px 24px 25px}.modal-card h2{font-size:48px}}
 @media(max-width:390px){.container{width:calc(100% - 28px)}.brand-copy small{letter-spacing:.06em}.header-actions{gap:7px}.live-pill{letter-spacing:0;font-size:7px}.profile-button{max-width:115px}.hero h1{font-size:78px}.hero-meta{gap:8px}.intro-content p{font-size:13px}.date-option{padding:11px}.date-calendar{min-width:60px;padding-right:13px}.date-text{padding-left:12px}.date-text b{font-size:20px}.date-rank{height:33px;width:33px}.attendees-count strong{font-size:44px}.attendees-count span{font-size:8px}.admin-form-grid{grid-template-columns:1fr}.admin-form-grid input{padding:12px!important}}
 @media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;scroll-behavior:auto!important;transition:none!important}}
+
+
+/* HELLARA STUDIOS — RESERVATION CONFIRMED · 06 NOVEMBER 2026 */
+.event-confirmed #stemmen,
+.event-confirmed #tussenstand,
+.event-confirmed #header-profile,
+.event-confirmed #connection-pill{display:none}
+.event-confirmed .hero{min-height:695px}
+.event-confirmed .hero-grid{padding-top:74px;padding-bottom:66px}
+.event-confirmed .hero-lead{max-width:510px}
+.event-confirmed .hero-meta{margin-top:32px}
+.booking-preview{
+  width:min(100%,505px);margin:27px 0 29px;padding:19px 23px 21px;
+  border:1px solid #d997537a;background:linear-gradient(120deg,#2e241ddd,#261c18ba);
+  box-shadow:0 18px 55px #0005;backdrop-filter:blur(9px);
+  position:relative;overflow:hidden
+}
+.booking-preview:before{content:'';position:absolute;inset:0 auto 0 0;width:4px;background:linear-gradient(var(--yellow),var(--fire))}
+.booking-check{font-size:10px;letter-spacing:.17em;font-weight:900;color:#efc182}
+.booking-preview-content{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-top:15px}
+.booking-preview-content>strong{font:900 clamp(32px,4.6vw,47px)/.9 var(--font-display);letter-spacing:.04em;color:var(--cream)}
+.booking-preview-content>strong small{font:700 13px var(--font-body);color:var(--muted)}
+.booking-preview-content>span{font:900 21px var(--font-display);letter-spacing:.015em;color:var(--fire2);text-align:right}
+.booking-preview-content>span small{display:block;font:800 10px var(--font-body);letter-spacing:.15em;color:var(--muted);margin-top:7px}
+.confirmation-section{position:relative;padding:88px 0 92px;background:linear-gradient(180deg,#1b1916,#151413)}
+.confirmation-heading{max-width:900px;margin-bottom:38px}
+.confirmation-heading .overline{color:var(--fire2)}
+.confirmation-heading h2{font:900 clamp(50px,7vw,94px)/.94 var(--font-display);letter-spacing:-.012em;color:var(--cream);margin:23px 0}
+.confirmation-heading h2 em{font-style:normal;color:var(--fire2)}
+.confirmation-heading>p:last-child{font-size:15px;line-height:1.8;color:#d3c2af;max-width:620px}
+.confirmation-heading>p:last-child strong{color:var(--cream)}
+.confirmation-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.25fr);gap:19px}
+.confirmation-date,.confirmation-countdown{padding:34px 37px;border:1px solid #594538;min-width:0}
+.confirmation-date{background:radial-gradient(ellipse at 75% 15%,#8f4c2c55,transparent 50%),linear-gradient(145deg,#34261f,#1e1b18)}
+.confirmation-countdown{background:radial-gradient(ellipse at 87% 80%,#77402935,transparent 54%),#23201d}
+.confirmation-overline{font-size:10px;font-weight:900;letter-spacing:.14em;color:#efba7a}
+.confirmation-dot{display:inline-block;width:8px;height:8px;border-radius:50%;background:#b6d99b;margin-right:7px;box-shadow:0 0 12px #b6d99b77}
+.confirmation-date-body{display:flex;align-items:center;gap:18px;margin:18px 0 23px}
+.confirmation-day{font:900 clamp(100px,14vw,170px)/.83 var(--font-display);letter-spacing:-.06em;color:#f3dcc0}
+.confirmation-month{display:flex;flex-direction:column;gap:8px}
+.confirmation-month strong{font:900 clamp(25px,3vw,41px)/.9 var(--font-display);color:#f3a85a;letter-spacing:.03em}
+.confirmation-month span{font-size:11px;letter-spacing:.13em;font-weight:900;color:#cab19e}
+.confirmation-card-rule{height:1px;background:#75553f;margin:16px 0 23px}
+.confirmation-time-label{display:block;font-size:10px;font-weight:900;letter-spacing:.17em;color:#a99a8a;margin-bottom:7px}
+.confirmation-time{display:block;font:900 clamp(35px,4.5vw,59px)/1 var(--font-display);color:#f5ebdf}
+.confirmation-detail{display:block;margin-top:21px;font-size:12px;color:#cbb9a9}
+.confirmation-countdown h3{font:900 clamp(29px,3.5vw,48px)/1 var(--font-display);color:#f2e9db;margin:21px 0 23px}
+.confirmation-countdown h3 em{font-style:normal;color:#eca060}
+.countdown-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.countdown-grid>div{background:#161411;border:1px solid #4b392d;padding:20px 8px 16px;text-align:center}
+.countdown-grid strong{display:block;font:900 clamp(29px,3.8vw,55px)/1 var(--font-display);font-variant-numeric:tabular-nums;color:#f6e8d6}
+.countdown-grid span{display:block;font-size:9px;font-weight:900;color:#bd9e82;letter-spacing:.08em;margin-top:9px}
+.confirmation-countdown>p{margin:18px 0 20px;color:#cfc0ae;font-size:12px}
+.confirmation-actions{display:flex;align-items:center;flex-wrap:wrap;gap:18px}
+.confirmation-text-link{font-size:11px;font-weight:900;letter-spacing:.08em;color:#edb574}
+.confirmation-footnote{margin:25px 0 0;font-size:11px;color:#9f9286;line-height:1.8}
+.confirmation-footnote strong{color:#c9aa85}
+@media(max-width:1020px){.confirmation-date,.confirmation-countdown{padding:25px}.confirmation-date-body{gap:12px}}
+@media(max-width:760px){
+ .event-confirmed .hero{min-height:730px}
+ .event-confirmed .hero-grid{padding:82px 0 50px}
+ .event-confirmed .hero h1{font-size:clamp(76px,15vw,115px)}
+ .event-confirmed .hero-meta{margin-top:30px}
+ .booking-preview{padding:18px 17px 20px;margin:28px 0}
+ .booking-preview-content{gap:8px}
+ .booking-preview-content>strong{font-size:clamp(29px,9vw,47px)}
+ .booking-preview-content>span{font-size:19px}
+ .confirmation-section{padding:64px 0 70px}
+ .confirmation-heading h2{font-size:clamp(49px,10.7vw,73px)}
+ .confirmation-heading>p:last-child{font-size:14px}
+ .confirmation-grid{grid-template-columns:1fr;gap:14px}
+ .confirmation-date,.confirmation-countdown{padding:25px 24px}
+ .confirmation-day{font-size:clamp(118px,33vw,160px)}
+ .confirmation-month strong{font-size:clamp(31px,8vw,39px)}
+ .confirmation-time{font-size:clamp(40px,12vw,61px)}
+ .confirmation-countdown h3{font-size:clamp(36px,9vw,46px)}
+ .countdown-grid strong{font-size:clamp(29px,9vw,48px)}
+}
+@media(max-width:390px){
+ .booking-preview-content>span{font-size:17px}
+ .confirmation-date,.confirmation-countdown{padding:23px 18px}
+ .confirmation-day{font-size:110px}
+ .confirmation-month strong{font-size:29px}
+ .countdown-grid{gap:5px}
+ .countdown-grid>div{padding:18px 5px}
+ .countdown-grid strong{font-size:31px}
+ .countdown-grid span{font-size:8px;letter-spacing:0}
+}
