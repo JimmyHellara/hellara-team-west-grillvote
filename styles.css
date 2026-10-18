@@ -95,3 +95,11 @@
  .countdown-grid strong{font-size:31px}
  .countdown-grid span{font-size:8px;letter-spacing:0}
 }
+
+/* Outlook and calendar actions — dinner invitation */
+.confirmation-calendar{margin:25px 0 23px;padding:20px 20px 18px;border:1px solid #755239;background:linear-gradient(135deg,#3a291eaa,#211c18);border-left:3px solid #f0a459}
+.confirmation-calendar>p{font-size:10px;color:#f1bc81;font-weight:900;letter-spacing:.14em;margin:0 0 16px}
+.confirmation-calendar-actions{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+.confirmation-calendar-actions .btn{font-size:12px;padding:15px 18px}
+.confirmation-calendar>small{display:block;color:#bda895;line-height:1.65;font-size:11px;margin-top:14px}
+@media(max-width:760px){.confirmation-calendar{padding:18px 16px}.confirmation-calendar-actions{gap:12px}.confirmation-calendar-actions .btn{width:100%;justify-content:space-between}}
