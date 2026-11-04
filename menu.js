@@ -63,13 +63,13 @@ async function rpc(method,params={}){
 }
 function cardTemplate(m){
  const rank=state.ranked.indexOf(m.id);
- return \`<button class="meal-item \${rank>=0?'selected':''} \${m.category==='suggestie'?'special':''}" type="button"
-    data-dish="\${safe(m.id)}" aria-pressed="\${rank>=0}" aria-label="\${safe(m.label)}\${rank>=0?', keuze '+(rank+1):''}">
-    <span class="meal-item-tag"><span>\${cat[m.category]}</span>
-    <span class="meal-item-check">\${rank>=0?rank+1:'+'}</span></span>
-    <strong>\${safe(m.label)}</strong>
-    <small>\${rank>=0?(rank===0?'🥇 3 PUNTEN':rank===1?'🥈 2 PUNTEN':'🥉 1 PUNT'):safe(m.desc)}</small>
-  </button>\`;
+ return `<button class="meal-item ${rank>=0?'selected':''} ${m.category==='suggestie'?'special':''}" type="button"
+    data-dish="${safe(m.id)}" aria-pressed="${rank>=0}" aria-label="${safe(m.label)}${rank>=0?', keuze '+(rank+1):''}">
+    <span class="meal-item-tag"><span>${cat[m.category]}</span>
+    <span class="meal-item-check">${rank>=0?rank+1:'+'}</span></span>
+    <strong>${safe(m.label)}</strong>
+    <small>${rank>=0?(rank===0?'🥇 3 PUNTEN':rank===1?'🥈 2 PUNTEN':'🥉 1 PUNT'):safe(m.desc)}</small>
+  </button>`;
 }
 function renderCards(){
  const filtered=menu.filter(m=>(state.category==='all'||m.category===state.category)&&
@@ -93,10 +93,10 @@ function renderSelection(){
  list.innerHTML=points.map((p,i)=>{
   const id=ranks[i];
   const food=id?label(id):i===0?'Kies je favoriet':i===1?'Kies je tweede gerecht':'Kies je derde gerecht';
-  return \`<li class="meal-ranked-row \${id?'filled':''}">
-   <span class="meal-rank-medal">\${i+1}</span><span class="meal-rank-food">\${safe(food)}<small>\${p} \${p===1?'PUNT':'PUNTEN'}</small></span>
-   \${id?'<button type="button" data-remove="'+safe(id)+'" aria-label="Verwijder '+safe(food)+'">×</button>':''}
-  </li>\`;
+  return `<li class="meal-ranked-row ${id?'filled':''}">
+   <span class="meal-rank-medal">${i+1}</span><span class="meal-rank-food">${safe(food)}<small>${p} ${p===1?'PUNT':'PUNTEN'}</small></span>
+   ${id?'<button type="button" data-remove="'+safe(id)+'" aria-label="Verwijder '+safe(food)+'">×</button>':''}
+  </li>`;
  }).join('');
  list.querySelectorAll('[data-remove]').forEach(el=>el.addEventListener('click',()=>selectDish(el.dataset.remove)));
  $('meal-rank-progress-text').textContent=ranks.length+' VAN 3 GEKOZEN';
@@ -153,20 +153,20 @@ function renderScores(){
  $('meal-total').textContent=state.total;
  const top=sorted.slice(0,3);
  $('meal-winners').innerHTML=top.length?top.map((x,i)=>
-  \`<article class="meal-winner-card"><span class="meal-winner-heading">\${i+1}e PLAATS \${i===0?'✦':''}</span>
-   <strong>\${safe(label(x.dish_id))}</strong>
-   <div class="meal-winner-points">\${Number(x.points)} <span>PUNTEN</span></div>
-   <small>\${Number(x.first)}× eerste · \${Number(x.second)}× tweede · \${Number(x.third)}× derde</small>
-  </article>\`).join(''):
+  `<article class="meal-winner-card"><span class="meal-winner-heading">${i+1}e PLAATS ${i===0?'✦':''}</span>
+   <strong>${safe(label(x.dish_id))}</strong>
+   <div class="meal-winner-points">${Number(x.points)} <span>PUNTEN</span></div>
+   <small>${Number(x.first)}× eerste · ${Number(x.second)}× tweede · ${Number(x.third)}× derde</small>
+  </article>`).join(''):
   '<p class="meal-empty">Nog geen keuzes. De eerste drie gerechten komen hier automatisch te staan.</p>';
  if(rankTie())$('meal-winners').insertAdjacentHTML('beforeend','<p class="meal-tie-note">⚠️ Gelijke stand op de grens van de top 3. De organisator moet beslissen.</p>');
  const max=Math.max(1,...sorted.map(x=>Number(x.points)||0));
  $('meal-stats').innerHTML=sorted.length?sorted.map((x,i)=>{
   const percent=Math.round(Number(x.points)/max*100);
-  return \`<div class="meal-stat"><strong class="meal-stat-count">\${Number(x.points)} <small>PT</small></strong>
-   <div style="flex:1"><div class="meal-stat-label">\${i<3?'✦ ':''}\${safe(label(x.dish_id))}</div>
-   <div class="meal-stat-meta">\${Number(x.first)}× 1e · \${Number(x.second)}× 2e · \${Number(x.third)}× 3e</div>
-   <div class="meal-stat-bar"><span style="width:\${percent}%"></span></div></div></div>\`;
+  return `<div class="meal-stat"><strong class="meal-stat-count">${Number(x.points)} <small>PT</small></strong>
+   <div style="flex:1"><div class="meal-stat-label">${i<3?'✦ ':''}${safe(label(x.dish_id))}</div>
+   <div class="meal-stat-meta">${Number(x.first)}× 1e · ${Number(x.second)}× 2e · ${Number(x.third)}× 3e</div>
+   <div class="meal-stat-bar"><span style="width:${percent}%"></span></div></div></div>`;
  }).join(''):'<p>Er zijn nog geen stemmen. Jij kunt de eerste zijn! 🔥</p>';
 }
 async function refreshScores(){
@@ -189,11 +189,11 @@ function loadAdminTable(){
  const votes=state.adminVotes;
  const rows=votes.map(v=>{
   const ranked=Array.isArray(v.ranked_dishes)?v.ranked_dishes:[];
-  return \`<tr><td>\${safe(v.name)}</td><td>\${safe(label(ranked[0]))}</td><td>\${safe(label(ranked[1]))}</td><td>\${safe(label(ranked[2]))}</td></tr>\`;
+  return `<tr><td>${safe(v.name)}</td><td>${safe(label(ranked[0]))}</td><td>${safe(label(ranked[1]))}</td><td>${safe(label(ranked[2]))}</td></tr>`;
  }).join('');
- $('meal-admin-table-wrap').innerHTML=\`<table class="meal-admin-table"><thead><tr>
+ $('meal-admin-table-wrap').innerHTML=`<table class="meal-admin-table"><thead><tr>
   <th>NAAM</th><th>1e KEUZE · 3 PT</th><th>2e · 2 PT</th><th>3e · 1 PT</th>
-  </tr></thead><tbody>\${rows||'<tr><td colspan="4">Nog geen keuzes opgeslagen.</td></tr>'}</tbody></table>\`;
+  </tr></thead><tbody>${rows||'<tr><td colspan="4">Nog geen keuzes opgeslagen.</td></tr>'}</tbody></table>`;
  const winners=getWinners();
  const needsAttention=votes.filter(v=>!v.ranked_dishes?.some(id=>winners.includes(id)));
  const notes=[];
