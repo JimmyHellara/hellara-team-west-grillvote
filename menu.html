@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="nl-BE">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#161514">
+  <meta name="description" content="Team West aan de Grill — kies je hoofdgerecht voor vrijdag 6 november bij d’Hoeve.">
+  <title>Wat ligt er op jouw bord? · Team West aan de Grill</title>
+  <meta property="og:title" content="Team West aan de Grill — kies jouw gerecht 🥩">
+  <meta property="og:description" content="Welke hoofdschotel wil jij vrijdag 6 november bij d’Hoeve? Laat je keuze weten!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./menu.css">
+  <script src="./menu.js" defer></script>
+</head>
+<body class="meal-page">
+  <div class="top-strip"></div>
+  <header class="site-header container meal-header">
+    <a class="brand-lockup" href="./index.html" aria-label="Terug naar de reservatie">
+      <span class="brand-mark">V<span class="brand-slash">/</span></span>
+      <span class="brand-copy"><strong>VENETA<span class="dot">.</span></strong><small>TEAM WEST · BELGIË</small></span>
+    </a>
+    <a href="./index.html" class="meal-back">← DE RESERVATIE</a>
+  </header>
+  <main>
+    <section class="meal-hero">
+      <div class="container meal-hero-inside">
+        <p class="meal-kicker">HELLARA STUDIOS PRESENTEERT · HOOFDGERECHTENPOLL</p>
+        <h1>WHAT'S<br><span>COOKING<span class="meal-point">?</span></span></h1>
+        <p class="meal-sub">Vrijdag 6 november · aankomst 19:00–19:30 · Grillrestaurant d’Hoeve</p>
+        <div class="meal-alert"><strong>🥩 MAXIMAAL 3 GERECHTEN PER TAFEL</strong><span>Om de keuken te helpen, verzamelen we ieders favoriete hoofdgerecht en een eventueel alternatief. Jimmy verdeelt de keuzes daarna per tafel en bevestigt de bestelling met het restaurant.</span></div>
+        <div class="meal-hero-tail">DE STEMMING IS VOOR HET ETEN · NIET MEER VOOR DE DATUM ✦</div>
+      </div>
+    </section>
+    <section class="container meal-wrap" id="bestellen">
+      <div class="meal-section-heading"><div><p class="meal-overline">01 / VUL JE NAAM IN</p><h2>WIE ZIT ER <em>AAN TAFEL?</em></h2></div><span class="meal-tiny">SLA JE KEUZE OP · PAS AAN WANNEER NODIG</span></div>
+      <div class="meal-name-box">
+        <label for="meal-name">VOOR- EN ACHTERNAAM</label>
+        <div class="meal-name-row"><input id="meal-name" maxlength="60" autocomplete="name" placeholder="Jouw naam" aria-describedby="meal-name-help"><button type="button" id="meal-load">EERDERE KEUZE OPHALEN ↗</button></div>
+        <small id="meal-name-help">De app herkent je op basis van je naam, zonder wachtwoord. Vul dezelfde naam in als de vorige keer.</small>
+      </div>
+      <div class="meal-section-heading meal-gap"><div><p class="meal-overline">02 / JOUW GERECHT</p><h2>MEAT <em>THE MENU.</em></h2></div><a target="_blank" rel="noopener noreferrer" href="https://grill-dhoeve.be/a-la-carte/" class="meal-menu-link">OFFICIËLE MENUKAART ↗</a></div>
+      <p class="meal-intro">Kies <strong>één hoofdgerecht</strong>. Je kunt hieronder optioneel een tweede keuze aanduiden. De gerechten komen van de officiële kaart; hertenkalf en eendenborst zijn extra suggesties die het restaurant telefonisch meldde. De bereidingswijze en prijzen van de suggesties zijn nog niet bevestigd.</p>
+      <div class="meal-filter-row">
+        <div class="meal-tabs" id="meal-tabs" role="group" aria-label="Filter gerechten">
+          <button type="button" data-category="all" class="active">ALLE GERECHTEN</button>
+          <button type="button" data-category="suggestie">SEIZOEN ✦</button>
+          <button type="button" data-category="grill">GRILL</button>
+          <button type="button" data-category="vis">VIS</button>
+          <button type="button" data-category="klassiek">KLASSIEK</button>
+          <button type="button" data-category="salade">SALADES</button>
+        </div>
+        <input id="meal-search" type="search" placeholder="Zoek een gerecht..." aria-label="Gerechten zoeken">
+      </div>
+      <div class="meal-cards" id="meal-cards" role="radiogroup" aria-label="Kies je favoriete hoofdgerecht"></div>
+      <div class="meal-choice-layout">
+        <div class="meal-choice-box">
+          <p class="meal-overline">03 / DE LAATSTE DETAILS</p>
+          <h3>EN WAT ERBIJ?</h3>
+          <label for="meal-alternative">ALTERNATIEF (OPTIONEEL)</label>
+          <select id="meal-alternative"><option value="">Geen alternatief gekozen</option></select>
+          <label for="meal-side">BEGELEIDING (INDIEN VAN TOEPASSING)</label>
+          <select id="meal-side"><option value="">Geen keuze / niet van toepassing</option><option value="frietjes">Frietjes</option><option value="aardappel">Aardappel in de pel</option><option value="brood">Brood</option><option value="geen_voorkeur">Geen voorkeur</option></select>
+          <p class="meal-helper">Wat bij een gerecht inbegrepen is, hangt af van de kaart. Bij seizoenssuggesties wordt de garnituur nog bevestigd. Voor allergenen of speciale dieetwensen: bespreek die rechtstreeks met de organisator.</p>
+        </div>
+        <div class="meal-save-box">
+          <p class="meal-overline">JOUW BESTELLING</p>
+          <h3 id="meal-selected-title">NOG GEEN GERECHT</h3>
+          <p id="meal-selected-description">Kies hierboven eerst wat je graag zou eten.</p>
+          <button id="meal-save" type="button" class="meal-save" disabled>BEVESTIG MIJN GERECHT <span>→</span></button>
+          <p role="status" aria-live="polite" id="meal-message"></p>
+          <small>Je kunt je keuze achteraf aanpassen. Per naam telt enkel de laatst bewaarde keuze.</small>
+        </div>
+      </div>
+    </section>
+    <section class="meal-stats-section">
+      <div class="container">
+        <div class="meal-section-heading"><div><p class="meal-overline">04 / LIVE OVERZICHT</p><h2>WAT ZIT ER <em>IN DE PAN?</em></h2></div><div class="meal-vote-badge"><strong id="meal-total">0</strong><span>KEUZES BINNEN</span></div></div>
+        <p class="meal-intro">Voorlopige aantallen per eerste keuze. De definitieve selectie van maximaal drie gerechten wordt per tafel afgestemd; dit is nog geen bevestigde restaurantbestelling.</p>
+        <div id="meal-stats" class="meal-stats"><p>Nog geen keuzes binnen.</p></div>
+      </div>
+    </section>
+    <section class="container meal-admin-area">
+      <details id="meal-admin-details">
+        <summary>⚙ ORGANISATOR · BESTELLIJST EN CSV</summary>
+        <div class="meal-admin-inside">
+          <p>Alleen voor de organisator. Vul je persoonlijke beheercode in om alle namen, hoofdgerechten, alternatieven en bijgerechten te bekijken of te downloaden.</p>
+          <div class="meal-name-row"><input type="password" id="meal-admin-code" placeholder="Beheercode" autocomplete="off"><button type="button" id="meal-admin-open">TOON BESTELLIJST</button></div>
+          <p id="meal-admin-status" role="status"></p>
+          <div id="meal-admin-results" hidden><div class="meal-admin-actions"><button type="button" id="meal-download">↓ DOWNLOAD CSV VOOR RESTAURANT</button><span id="meal-admin-count"></span></div><div id="meal-admin-table-wrap" class="meal-admin-table-wrap"></div></div>
+        </div>
+      </details>
+    </section>
+  </main>
+  <footer class="meal-footer"><div class="container meal-footer-content"><span>TEAM WEST · VRIJDAG 6 NOVEMBER · D’HOEVE</span><strong>DESIGNED &amp; BUILT BY HELLARA STUDIOS ✦</strong></div></footer>
+</body>
+</html>
