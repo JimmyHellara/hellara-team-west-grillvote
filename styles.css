@@ -103,3 +103,14 @@
 .confirmation-calendar-actions .btn{font-size:12px;padding:15px 18px}
 .confirmation-calendar>small{display:block;color:#bda895;line-height:1.65;font-size:11px;margin-top:14px}
 @media(max-width:760px){.confirmation-calendar{padding:18px 16px}.confirmation-calendar-actions{gap:12px}.confirmation-calendar-actions .btn{width:100%;justify-content:space-between}}
+
+/* New main course poll launch; original date result and calendar unchanged. */
+.meal-poll-launch{border-top:1px solid #6a4730;border-bottom:1px solid #6a4730;background:radial-gradient(ellipse at 5% 60%,#703b2459,transparent 65%),#241b15;padding:38px 0}
+.meal-poll-launch-inner{display:flex;align-items:center;justify-content:space-between;gap:32px}
+.meal-poll-launch-text{max-width:730px}
+.meal-poll-launch-text p{font:900 10px 'DM Sans',sans-serif;letter-spacing:.17em;color:#edb578;margin:0 0 12px}
+.meal-poll-launch h2{font:900 clamp(34px,4.1vw,53px)/1 'Barlow Condensed',Impact,sans-serif;color:#f4ebdc;margin:0 0 12px}
+.meal-poll-launch h2 em{font-style:normal;color:#f2a366}
+.meal-poll-launch-text>span{font-size:12px;line-height:1.7;color:#ccb5a2}
+.meal-poll-launch a.btn{white-space:nowrap;flex:none}
+@media(max-width:760px){.meal-poll-launch{padding:29px 0}.meal-poll-launch-inner{flex-direction:column;align-items:stretch;gap:24px}.meal-poll-launch a.btn{width:100%;justify-content:space-between}.meal-poll-launch h2{font-size:38px}}
