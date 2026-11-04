@@ -119,3 +119,35 @@
  .meal-stats{grid-template-columns:1fr}
 }
 @media(max-width:360px){.meal-cards{grid-template-columns:1fr}.meal-hero h1{font-size:77px}}
+
+/* Ranked top-three preferences — steakhouse voting */
+.meal-ranked-list{display:grid;gap:10px;list-style:none;padding:0;margin:22px 0}
+.meal-ranked-row{border:1px dashed #644935;background:#1a1612;color:#baa58f;padding:12px 12px;display:flex;align-items:center;gap:13px;min-height:62px}
+.meal-ranked-row.filled{border-style:solid;border-color:#ab6c3f;background:linear-gradient(115deg,#423022,#221b15);color:#f7e9da}
+.meal-rank-medal{width:35px;height:35px;min-width:35px;border:1px solid #a16e42;border-radius:50%;display:grid;place-items:center;font:900 18px 'Barlow Condensed',sans-serif;color:#f3bc76}
+.meal-ranked-row.filled:first-child .meal-rank-medal{background:#f5b96b;color:#23170b;border-color:#f5b96b}
+.meal-rank-food{display:block;flex:1;min-width:0;font-weight:800;font-size:13px}
+.meal-rank-food small{display:block;color:#d79d65;font-weight:800;font-size:9px;letter-spacing:.09em;margin-top:6px}
+.meal-ranked-row>button{border:1px solid #6e4830;background:#28201a;color:#f6c294;width:30px;height:30px;font-size:21px;flex:none;line-height:1}
+.meal-rank-progress{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:16px}
+.meal-rank-progress span{font-size:10px;color:#d9ad7b;font-weight:900;letter-spacing:.13em}
+.meal-rank-progress button{font-size:10px;color:#f1b781;font-weight:900;background:none;border:none;text-decoration:underline}
+.meal-rank-track{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:11px 0 21px}
+.meal-rank-track i{background:#403229;height:6px;display:block}
+.meal-rank-track i.filled{background:linear-gradient(90deg,#c45c32,#f2b76a)}
+.meal-item.selected .meal-item-check{font:900 17px 'Barlow Condensed',sans-serif}
+.meal-winners{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:26px 0}
+.meal-winner-card{background:radial-gradient(circle at 86% 12%,#7541246d,transparent 64%),#2c211a;border:1px solid #a26b45;padding:25px 24px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.meal-winner-card:first-child{border-color:#e0a05f;background:radial-gradient(circle at 85% 15%,#af653554,transparent 64%),#3b281a}
+.meal-winner-heading{font-weight:900;font-size:10px;letter-spacing:.13em;color:#f0b575}
+.meal-winner-card>strong{font:900 clamp(25px,3vw,36px)/1.07 'Barlow Condensed',sans-serif;color:#f6eadb;min-height:78px}
+.meal-winner-points{font:900 36px 'Barlow Condensed',sans-serif;color:#eeb06e}
+.meal-winner-points span{font:900 10px 'DM Sans',sans-serif;letter-spacing:.11em;color:#bda18a}
+.meal-winner-card>small{color:#c7a88d;font-size:10px;line-height:1.6}
+.meal-tie-note{grid-column:1/-1;background:#573323;color:#f6cf91;border:1px solid #b57245;padding:13px;line-height:1.6;font-size:12px;margin:0}
+.meal-stat-count{min-width:65px;text-align:center;line-height:.85}
+.meal-stat-count small{font:800 9px 'DM Sans',sans-serif;color:#b8a48f}
+.meal-stat-meta{font-size:10px;color:#aa9782;margin-top:6px}
+.meal-admin-warning{color:#f0c68b!important;border-left:3px solid #d18449;padding-left:12px;line-height:1.75}
+@media(max-width:800px){.meal-winners{grid-template-columns:1fr 1fr}.meal-winner-card{padding:19px}.meal-winner-card>strong{min-height:0}}
+@media(max-width:560px){.meal-winners{grid-template-columns:1fr}.meal-winner-card{padding:18px}.meal-winner-card>strong{font-size:30px}.meal-ranked-row{padding:10px}}
