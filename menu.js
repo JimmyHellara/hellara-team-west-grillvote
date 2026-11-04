@@ -37,12 +37,42 @@ const $=id=>document.getElementById(id);
 const state={
  name:localStorage.getItem(storageKey)||localStorage.getItem('hs-grillvote-name-v1')||'',
  ranked:[], category:'all', search:'', scores:[], total:0, adminVotes:[],
- winners:[], saved:false
+ winners:[], saved:false, closed:false
 };
 const safe=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const label=id=>byId[id]?.label||String(id||'');
 const normalizeName=n=>String(n||'').trim().replace(/\s+/g,' ').slice(0,60);
 const points=[3,2,1];
+const deadlineMs=Date.parse('2026-11-05T11:00:00Z'); // 12:00 CET, Brussels, November 5.
+function isClosed(){return state.closed || Date.now()>=deadlineMs}
+function remainingText(){
+ const sec=Math.max(0,Math.ceil((deadlineMs-Date.now())/1000));
+ const days=Math.floor(sec/86400);
+ const hrs=Math.floor(sec%86400/3600);
+ const mins=Math.floor(sec%3600/60);
+ const secs=sec%60;
+ return (days?days+'d ':'')+String(hrs).padStart(2,'0')+':'+String(mins).padStart(2,'0')+':'+String(secs).padStart(2,'0');
+}
+function updateDeadlineUI(){
+ const before=state.closed;
+ state.closed=isClosed();
+ document.body.classList.toggle('meal-voting-closed',state.closed);
+ $('meal-deadline-countdown').textContent=state.closed?
+  'STEMMING GESLOTEN · DE UITSLAG IS BINNEN':
+  'STEMMEN KAN NOG '+remainingText();
+ const status=$('meal-final-status');
+ if(status)status.textContent=state.closed?
+   (rankTie()?'De stemming is gesloten. Er is een gelijke stand op plaats drie: de organisator beslist over het derde gerecht.':
+    state.scores.length<3?'De stemming is gesloten. Er zijn minder dan drie gerechten met stemmen.':
+    'De stemming is gesloten. Dit zijn de drie geselecteerde hoofdgerechten voor Team West!'):
+   'Stemmen kan tot donderdag 5 november om 12:00 (Belgische tijd). Daarna sluit de stemming automatisch en ligt de top 3 vast.';
+ if(!before&&state.closed){
+  renderCards();
+  renderSelection();
+  renderScores();
+ }
+}
+
 function feedback(msg,kind=''){
  $('meal-message').textContent=msg;
  $('meal-message').className=kind;
@@ -64,7 +94,7 @@ async function rpc(method,params={}){
 function cardTemplate(m){
  const rank=state.ranked.indexOf(m.id);
  return `<button class="meal-item ${rank>=0?'selected':''} ${m.category==='suggestie'?'special':''}" type="button"
-    data-dish="${safe(m.id)}" aria-pressed="${rank>=0}" aria-label="${safe(m.label)}${rank>=0?', keuze '+(rank+1):''}">
+    data-dish="${safe(m.id)}" ${isClosed()?'disabled aria-disabled="true"':''} aria-pressed="${rank>=0}" aria-label="${safe(m.label)}${rank>=0?', keuze '+(rank+1):''}">
     <span class="meal-item-tag"><span>${cat[m.category]}</span>
     <span class="meal-item-check">${rank>=0?rank+1:'+'}</span></span>
     <strong>${safe(m.label)}</strong>
@@ -79,6 +109,7 @@ function renderCards(){
  $('meal-cards').querySelectorAll('[data-dish]').forEach(el=>el.addEventListener('click',()=>selectDish(el.dataset.dish)));
 }
 function selectDish(id){
+ if(isClosed()){feedback('De stemming is gesloten sinds donderdag 5 november om 12:00.','error');return}
  const rank=state.ranked.indexOf(id);
  if(rank>=0)state.ranked.splice(rank,1);
  else if(state.ranked.length<3)state.ranked.push(id);
@@ -101,12 +132,13 @@ function renderSelection(){
  list.querySelectorAll('[data-remove]').forEach(el=>el.addEventListener('click',()=>selectDish(el.dataset.remove)));
  $('meal-rank-progress-text').textContent=ranks.length+' VAN 3 GEKOZEN';
  document.querySelectorAll('.meal-rank-track i').forEach((el,i)=>el.classList.toggle('filled',i<ranks.length));
- $('meal-save').disabled=ranks.length!==3;
+ $('meal-save').disabled=ranks.length!==3||isClosed();
+ $('meal-reset').disabled=isClosed();
  $('meal-selected-title').textContent=ranks.length===3?'TOP 3 COMPLEET!':ranks.length+' VAN 3 GEKOZEN';
  $('meal-selected-description').textContent=ranks.length===3?
   '1. '+label(ranks[0])+' · 2. '+label(ranks[1])+' · 3. '+label(ranks[2]):
   'Tik de hoofdgerechten aan in volgorde van voorkeur. Jouw nummer 1 krijgt 3 punten.';
- $('meal-save').innerHTML=state.saved?'TOP 3 OPNIEUW BEWAREN <span>→</span>':'BEVESTIG MIJN TOP 3 <span>→</span>';
+ $('meal-save').innerHTML=isClosed()?'STEMMING AFGESLOTEN <span>✓</span>':(state.saved?'TOP 3 OPNIEUW BEWAREN <span>→</span>':'BEVESTIG MIJN TOP 3 <span>→</span>');
 }
 async function loadSaved(){
  const name=normalizeName($('meal-name').value);
@@ -127,6 +159,7 @@ async function loadSaved(){
  }catch(e){feedback('Ophalen mislukt: '+e.message,'error')}
 }
 async function saveVote(){
+ if(isClosed()){feedback('De stemming is gesloten sinds 5 november 12:00. De uitslag staat vast.','error');updateDeadlineUI();return}
  const name=normalizeName($('meal-name').value);
  if(name.length<2){feedback('Vul eerst je naam in.','error');$('meal-name').focus();return}
  if(state.ranked.length!==3||new Set(state.ranked).size!==3){
@@ -138,7 +171,7 @@ async function saveVote(){
   state.name=name;state.saved=true;localStorage.setItem(storageKey,name);
   feedback('✅ Opgeslagen! Je top 3 telt mee. Je kunt je voorkeur later nog wijzigen.','ok');
   await refreshScores();
- }catch(e){feedback('Niet opgeslagen: '+(String(e.message).includes('invalid_ranked_dishes')?'Kies drie verschillende gerechten.':e.message),'error')}
+ }catch(e){feedback('Niet opgeslagen: '+(String(e.message).includes('voting_closed')?'De deadline van 5 november 12:00 is verstreken. Stemmen is gesloten.':String(e.message).includes('invalid_ranked_dishes')?'Kies drie verschillende gerechten.':e.message),'error');updateDeadlineUI()}
  finally{renderSelection()}
 }
 function getWinners(){
@@ -174,7 +207,9 @@ async function refreshScores(){
   const data=await rpc('teamwest_meal_rank_summary');
   state.scores=Array.isArray(data?.counts)?data.counts:[];
   state.total=Number(data?.total)||0;
+  state.closed=state.closed||Boolean(data?.closed);
   state.winners=getWinners();
+  updateDeadlineUI();
   renderScores();
  }catch(e){$('meal-stats').textContent='De live tussenstand is even niet beschikbaar. Vernieuw later de pagina.'}
 }
@@ -252,9 +287,10 @@ function bind(){
  $('meal-admin-open').addEventListener('click',loadAdmin);
  $('meal-download').addEventListener('click',downloadPreferences);
  $('meal-restaurant-download').addEventListener('click',downloadRestaurant);
- renderSelection();renderCards();refreshScores();
+ renderSelection();renderCards();updateDeadlineUI();refreshScores();
  if(state.name)loadSaved();
  setInterval(()=>{if(!document.hidden)refreshScores()},20000);
+ setInterval(()=>{updateDeadlineUI()},1000);
 }
 bind();
 })();
