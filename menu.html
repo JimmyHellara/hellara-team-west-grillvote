@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="theme-color" content="#161514">
-  <meta name="description" content="Team West aan de Grill — kies je hoofdgerecht voor vrijdag 6 november bij d’Hoeve.">
+  <meta name="description" content="Team West aan de Grill — geef je top 3 van gerechten door voor vrijdag 6 november bij d’Hoeve.">
   <title>Wat ligt er op jouw bord? · Team West aan de Grill</title>
   <meta property="og:title" content="Team West aan de Grill — kies jouw gerecht 🥩">
-  <meta property="og:description" content="Welke hoofdschotel wil jij vrijdag 6 november bij d’Hoeve? Laat je keuze weten!">
+  <meta property="og:description" content="Kies je drie favoriete gerechten. De drie winnaars vormen het menu voor Team West!">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -30,7 +30,7 @@
         <p class="meal-kicker">HELLARA STUDIOS PRESENTEERT · HOOFDGERECHTENPOLL</p>
         <h1>WHAT'S<br><span>COOKING<span class="meal-point">?</span></span></h1>
         <p class="meal-sub">Vrijdag 6 november · aankomst 19:00–19:30 · Grillrestaurant d’Hoeve</p>
-        <div class="meal-alert"><strong>🥩 MAXIMAAL 3 GERECHTEN PER TAFEL</strong><span>Om de keuken te helpen, verzamelen we ieders favoriete hoofdgerecht en een eventueel alternatief. Jimmy verdeelt de keuzes daarna per tafel en bevestigt de bestelling met het restaurant.</span></div>
+        <div class="meal-alert"><strong>🥩 DRIE GERECHTEN. ÉÉN TEAMMENU.</strong><span>D’Hoeve vraagt maximaal drie verschillende hoofdgerechten per tafel. Daarom stemt iedereen met een top 3. De drie gerechten met de meeste punten worden onze gezamenlijke selectie.</span></div>
         <div class="meal-hero-tail">DE STEMMING IS VOOR HET ETEN · NIET MEER VOOR DE DATUM ✦</div>
       </div>
     </section>
@@ -41,8 +41,8 @@
         <div class="meal-name-row"><input id="meal-name" maxlength="60" autocomplete="name" placeholder="Jouw naam" aria-describedby="meal-name-help"><button type="button" id="meal-load">EERDERE KEUZE OPHALEN ↗</button></div>
         <small id="meal-name-help">De app herkent je op basis van je naam, zonder wachtwoord. Vul dezelfde naam in als de vorige keer.</small>
       </div>
-      <div class="meal-section-heading meal-gap"><div><p class="meal-overline">02 / JOUW GERECHT</p><h2>MEAT <em>THE MENU.</em></h2></div><a target="_blank" rel="noopener noreferrer" href="https://grill-dhoeve.be/a-la-carte/" class="meal-menu-link">OFFICIËLE MENUKAART ↗</a></div>
-      <p class="meal-intro">Kies <strong>één hoofdgerecht</strong>. Je kunt hieronder optioneel een tweede keuze aanduiden. De gerechten komen van de officiële kaart; hertenkalf en eendenborst zijn extra suggesties die het restaurant telefonisch meldde. De bereidingswijze en prijzen van de suggesties zijn nog niet bevestigd.</p>
+      <div class="meal-section-heading meal-gap"><div><p class="meal-overline">02 / KIES JE TOP 3</p><h2>MEAT <em>THE MENU.</em></h2></div><a target="_blank" rel="noopener noreferrer" href="https://grill-dhoeve.be/a-la-carte/" class="meal-menu-link">OFFICIËLE MENUKAART ↗</a></div>
+      <p class="meal-intro">Kies <strong>drie verschillende hoofdgerechten</strong> door ze in volgorde aan te tikken. Je eerste keuze krijgt 3 punten, de tweede 2 en de derde 1. De gerechten komen van de officiële kaart; hertenkalf en eendenborst zijn extra suggesties die het restaurant telefonisch meldde. De bereidingswijze en prijzen van de suggesties zijn nog niet bevestigd.</p>
       <div class="meal-filter-row">
         <div class="meal-tabs" id="meal-tabs" role="group" aria-label="Filter gerechten">
           <button type="button" data-category="all" class="active">ALLE GERECHTEN</button>
@@ -54,42 +54,41 @@
         </div>
         <input id="meal-search" type="search" placeholder="Zoek een gerecht..." aria-label="Gerechten zoeken">
       </div>
-      <div class="meal-cards" id="meal-cards" role="radiogroup" aria-label="Kies je favoriete hoofdgerecht"></div>
+      <div class="meal-cards" id="meal-cards" role="group" aria-label="Selecteer drie gerechten in volgorde van voorkeur"></div>
       <div class="meal-choice-layout">
         <div class="meal-choice-box">
-          <p class="meal-overline">03 / DE LAATSTE DETAILS</p>
-          <h3>EN WAT ERBIJ?</h3>
-          <label for="meal-alternative">ALTERNATIEF (OPTIONEEL)</label>
-          <select id="meal-alternative"><option value="">Geen alternatief gekozen</option></select>
-          <label for="meal-side">BEGELEIDING (INDIEN VAN TOEPASSING)</label>
-          <select id="meal-side"><option value="">Geen keuze / niet van toepassing</option><option value="frietjes">Frietjes</option><option value="aardappel">Aardappel in de pel</option><option value="brood">Brood</option><option value="geen_voorkeur">Geen voorkeur</option></select>
-          <p class="meal-helper">Wat bij een gerecht inbegrepen is, hangt af van de kaart. Bij seizoenssuggesties wordt de garnituur nog bevestigd. Voor allergenen of speciale dieetwensen: bespreek die rechtstreeks met de organisator.</p>
+          <p class="meal-overline">03 / JOUW TOP 3</p>
+          <h3>JOUW PERSOONLIJKE PODIUM</h3>
+          <ol id="meal-ranked-list" class="meal-ranked-list" aria-label="Je gekozen gerechten in volgorde"></ol>
+          <div class="meal-rank-progress"><span id="meal-rank-progress-text">0 VAN 3 GEKOZEN</span><button id="meal-reset" type="button">OPNIEUW KIEZEN ↻</button></div>
+          <div class="meal-rank-track" aria-hidden="true"><i></i><i></i><i></i></div>
+          <p class="meal-helper">Tik opnieuw op een geselecteerd gerecht om het te verwijderen. Je volgorde wordt dan automatisch aangepast.</p>
         </div>
         <div class="meal-save-box">
-          <p class="meal-overline">JOUW BESTELLING</p>
-          <h3 id="meal-selected-title">NOG GEEN GERECHT</h3>
-          <p id="meal-selected-description">Kies hierboven eerst wat je graag zou eten.</p>
-          <button id="meal-save" type="button" class="meal-save" disabled>BEVESTIG MIJN GERECHT <span>→</span></button>
+          <p class="meal-overline">KLAAR OM TE STEMMEN?</p>
+          <h3 id="meal-selected-title">KIES DRIE GERECHTEN</h3>
+          <p id="meal-selected-description">Je rangschikking telt pas mee nadat je op de knop hieronder klikt.</p>
+          <button id="meal-save" type="button" class="meal-save" disabled>BEVESTIG MIJN TOP 3 <span>→</span></button>
           <p role="status" aria-live="polite" id="meal-message"></p>
-          <small>Je kunt je keuze achteraf aanpassen. Per naam telt enkel de laatst bewaarde keuze.</small>
+          <small>Per naam telt één top 3. Je kunt je keuzes later wijzigen. Dit is een stemming; de organisator geeft de definitieve bestelling door aan het restaurant.</small>
         </div>
       </div>
     </section>
     <section class="meal-stats-section">
       <div class="container">
         <div class="meal-section-heading"><div><p class="meal-overline">04 / LIVE OVERZICHT</p><h2>WAT ZIT ER <em>IN DE PAN?</em></h2></div><div class="meal-vote-badge"><strong id="meal-total">0</strong><span>KEUZES BINNEN</span></div></div>
-        <p class="meal-intro">Voorlopige aantallen per eerste keuze. De definitieve selectie van maximaal drie gerechten wordt per tafel afgestemd; dit is nog geen bevestigde restaurantbestelling.</p>
-        <div id="meal-stats" class="meal-stats"><p>Nog geen keuzes binnen.</p></div>
+        <p class="meal-intro">Iedereen geeft 3 punten aan zijn favoriete gerecht, 2 punten aan nummer twee en 1 punt aan nummer drie. <strong>De drie hoogste scores winnen.</strong> Bij gelijke punten tellen eerst de nummer-één-keuzes en daarna de nummer-twee-keuzes. Een exacte gelijke stand voor plaats drie vraagt een beslissing van de organisator.</p>
+        <div id="meal-winners" class="meal-winners" aria-live="polite"></div><div id="meal-stats" class="meal-stats"><p>Nog geen keuzes binnen.</p></div>
       </div>
     </section>
     <section class="container meal-admin-area">
       <details id="meal-admin-details">
         <summary>⚙ ORGANISATOR · BESTELLIJST EN CSV</summary>
         <div class="meal-admin-inside">
-          <p>Alleen voor de organisator. Vul je persoonlijke beheercode in om alle namen, hoofdgerechten, alternatieven en bijgerechten te bekijken of te downloaden.</p>
+          <p>Alleen voor de organisator. Bekijk de top 3 per collega en download de voorkeuren of een voorstel voor de restaurantbestelling met de drie winnende gerechten.</p>
           <div class="meal-name-row"><input type="password" id="meal-admin-code" placeholder="Beheercode" autocomplete="off"><button type="button" id="meal-admin-open">TOON BESTELLIJST</button></div>
           <p id="meal-admin-status" role="status"></p>
-          <div id="meal-admin-results" hidden><div class="meal-admin-actions"><button type="button" id="meal-download">↓ DOWNLOAD CSV VOOR RESTAURANT</button><span id="meal-admin-count"></span></div><div id="meal-admin-table-wrap" class="meal-admin-table-wrap"></div></div>
+          <div id="meal-admin-results" hidden><div class="meal-admin-actions"><button type="button" id="meal-download">↓ CSV · ALLE TOP 3-KEUZES</button><button type="button" id="meal-restaurant-download">↓ CSV · RESTAURANTVOORSTEL</button><span id="meal-admin-count"></span></div><p id="meal-admin-warning" class="meal-admin-warning"></p><div id="meal-admin-table-wrap" class="meal-admin-table-wrap"></div></div>
         </div>
       </details>
     </section>
