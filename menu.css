@@ -151,3 +151,17 @@
 .meal-admin-warning{color:#f0c68b!important;border-left:3px solid #d18449;padding-left:12px;line-height:1.75}
 @media(max-width:800px){.meal-winners{grid-template-columns:1fr 1fr}.meal-winner-card{padding:19px}.meal-winner-card>strong{min-height:0}}
 @media(max-width:560px){.meal-winners{grid-template-columns:1fr}.meal-winner-card{padding:18px}.meal-winner-card>strong{font-size:30px}.meal-ranked-row{padding:10px}}
+
+/* Fixed poll deadline: 5 November 2026, 12:00 Europe/Brussels */
+.meal-deadline-banner{display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap;border:1px solid #e5a567;border-left:5px solid #e7a35d;background:#231a12e8;padding:18px 22px;margin-top:18px;max-width:790px;box-shadow:0 9px 32px #0005}
+.meal-deadline-label{font-size:10px;font-weight:900;letter-spacing:.13em;color:#f7c88e}
+#meal-deadline-countdown{font-family:'Barlow Condensed',Impact,sans-serif;font-size:24px;letter-spacing:.03em;color:#f7e4cf;line-height:1.1}
+.meal-decision-note{border-left:3px solid #e39c5a;background:#3b281c;padding:13px 17px;color:#f3ce9a;font-size:13px;line-height:1.6;margin:5px 0 19px;font-weight:700}
+.meal-voting-closed .meal-deadline-banner{background:#2e3324;border-color:#9cbd78;border-left-color:#a3c77f}
+.meal-voting-closed #meal-deadline-countdown{color:#d1e5b0}
+.meal-voting-closed .meal-decision-note{background:#2b3324;border-color:#a5c47a;color:#d7e5bb}
+.meal-voting-closed .meal-item{cursor:default;opacity:.77}
+.meal-voting-closed .meal-item.selected{opacity:1}
+.meal-voting-closed .meal-item:hover{transform:none}
+.meal-voting-closed .meal-rank-progress button{opacity:.5;cursor:not-allowed}
+@media(max-width:650px){.meal-deadline-banner{padding:14px 16px}.meal-deadline-label{font-size:9px}#meal-deadline-countdown{font-size:22px}}
