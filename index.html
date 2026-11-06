@@ -131,6 +131,16 @@ section.info{padding:68px 0 30px}
 @media(max-width:800px){.gilles-layout{flex-direction:column;text-align:center;gap:21px;padding:25px 0}.gilles-counter-side{text-align:center}.gilles-clock{justify-content:center}.gilles-quote{font-size:31px}.gilles-digit{min-width:88px}.gilles-after{text-align:center}}
 @media(max-width:390px){.gilles-digit{min-width:74px;padding:10px 6px}.gilles-quote{font-size:27px}.gilles-caption{font-size:9px}}
 
+
+/* Confirmed participant roster */
+.attendee-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;list-style:none;margin:22px 0 0;padding:0}
+.attendee-list li{min-width:0;display:flex;align-items:center;gap:11px;padding:10px 12px;background:#191511;border:1px solid #52402d;border-radius:3px;color:#f0ddc8;font-size:12px;font-weight:750}
+.attendee-mark{flex:none;display:grid;place-items:center;width:35px;height:35px;background:#59402c;border:1px solid #94663f;border-radius:50%;color:#f6d3a6;font-size:10px;font-weight:900;letter-spacing:.035em}
+.attendee-organizer{background:#362619!important;border-color:#b47845!important}
+.attendee-organizer .attendee-mark{background:#ae6536;color:#1b100b;border-color:#d4914b}
+.attendee-organizer small{display:block;font-size:9px;letter-spacing:.08em;color:#eab27f;margin-top:4px}
+@media(max-width:440px){.attendee-list{grid-template-columns:1fr}}
+
 </style>
 </head>
 <body>
@@ -221,19 +231,28 @@ section.info{padding:68px 0 30px}
 
 <section class="guest-area" id="aanwezigen">
  <div class="wrap">
-  <div class="section-head"><div><span class="label">03 / DE GROEP</span><h2>WIE SCHUIFT <em>ER AAN?</em></h2></div></div>
+  <div class="section-head"><div><span class="label">03 / DE GROEP</span><h2>WIE SCHUIFT <em>ER AAN?</em></h2></div><span class="section-note">De namen achter Team West aan de Grill</span></div>
   <div class="guest-board">
    <article class="guest-main">
-    <span class="label">TEAM WEST · SAMEN AAN TAFEL</span>
+    <span class="label">ONZE TAFEL · VRIJDAG 6 NOVEMBER</span>
     <h3>DE BENDE IS COMPLEET. 🔥</h3>
-    <p>De collega’s van <strong>Veneta Team West</strong> trekken samen naar d’Hoeve. Het restaurant heeft ook bevestigd dat <strong>de twee extra collega’s</strong> nog kunnen aansluiten.</p>
-    <div class="guest-chips"><span class="guest-chip">✦ TEAM WEST</span><span class="guest-chip">+ 2 EXTRA COLLEGA’S</span></div>
+    <ul class="attendee-list" aria-label="De acht aanwezigen">
+      <li><span class="attendee-mark">CT</span><span>Caya Timmerman</span></li>
+      <li><span class="attendee-mark">GD</span><span>Gilles Dutoit</span></li>
+      <li><span class="attendee-mark">KH</span><span>Korneel van der Heyden</span></li>
+      <li><span class="attendee-mark">KN</span><span>Kurt Notredame</span></li>
+      <li><span class="attendee-mark">SG</span><span>Stijn Goolaerts</span></li>
+      <li><span class="attendee-mark">BG</span><span>Baue Gabriel</span></li>
+      <li><span class="attendee-mark">GD</span><span>Guillaume Dubois</span></li>
+      <li class="attendee-organizer"><span class="attendee-mark">JH</span><span>Jimmy Hellara <small>ORGANISATOR</small></span></li>
+    </ul>
    </article>
    <aside class="guest-side">
-    <span class="label">DE DEELNEMERSLIJST</span>
+    <span class="label">TEAM WEST AAN TAFEL</span>
     <span class="big-number">08</span>
-    <h3>COLLEGA’S HEBBEN GESTEMD</h3>
-    <p>Dit is het aantal geregistreerde FoodVote-deelnemers, niet het definitieve aantal aanwezigen. De volledige namenlijst is nog niet bevestigd.</p>
+    <h3>AANWEZIGEN</h3>
+    <p>Inclusief de twee extra collega’s die nog konden aansluiten. Het restaurant heeft de uitbreiding van de groep bevestigd.</p>
+    <div class="guest-chips"><span class="guest-chip">✦ TEAM WEST</span><span class="guest-chip">VRIJDAG 06.11</span></div>
    </aside>
   </div>
  </div>
